@@ -160,6 +160,7 @@
     <ClCompile Include="lib\Syntax\Parser\LiteralExpression.cpp" />
     <ClCompile Include="lib\Syntax\Parser\Node.cpp" />
     <ClCompile Include="lib\Syntax\Parser\Parser.cpp" />
+    <ClCompile Include="lib\Syntax\SyntaxInfo\Token.cpp" />
     <ClCompile Include="Pyrite.cpp" />
   </ItemGroup>
   <ItemGroup>

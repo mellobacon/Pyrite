@@ -1,35 +1,6 @@
 #include <iostream>
 #include "lib/Syntax/Parser/Parser.h"
 
-class Base
-{
-public:
-    virtual void Thing()
-    {
-        std::cout << "in base";
-    }
-    
-};
-
-class Derived: public Base
-{
-public:
-    void Thing() override
-    {
-        std::cout << "in derived";
-    }
-};
-
-void Test()
-{
-    Base* b = new Base;
-    Derived* d = new Derived;
-    Base* e = d;
-    d->Thing();
-}
-
-bool operator==(Node* lhs, const Node& rhs);
-
 void PrintTree(Node* node, std::string indent = "", bool islast = true)
 {
     std::string marker;
@@ -45,42 +16,45 @@ void PrintTree(Node* node, std::string indent = "", bool islast = true)
     std::cout << marker;
     switch (node->GetType())  // NOLINT(clang-diagnostic-switch-enum)
     {
+    case TokenType::BINARY_EXPRESSION:
+        std::cout << "BINARY_EXPRESSION";
+        break;
     case TokenType::LITERAL_EXPRESSION:
-        std::cout << "LITERAL_EXPRESSION" << std::endl;
+        std::cout << "LITERAL_EXPRESSION";
         break;
     case TokenType::PLUS:
-        std::cout << "PLUS" << std::endl;
+        std::cout << "PLUS";
         break;
     case TokenType::MINUS:
-        std::cout << "MINUS" << std::endl;
+        std::cout << "MINUS";
         break;
     case TokenType::SLASH:
-        std::cout << "SLASH" << std::endl;
+        std::cout << "SLASH";
         break;
     case TokenType::STAR:
-        std::cout << "STAR" << std::endl;
+        std::cout << "STAR";
         break;
     case TokenType::MOD:
-        std::cout << "MODULO" << std::endl;
+        std::cout << "MODULO";
         break;
     default:
-        std::cout << " ";
+        std::cout << "NUMBER";
     }
 
-    std::cout << "\n";
+    std::cout << std::endl;
     if (islast)
     {
-        indent = "   ";
+        indent += "   ";
     }
     else
     {
-        indent = "|  ";
+        indent += "|  ";
     }
-    
-    auto last = &node->GetChildren().back();
-    for (Node& child : node->GetChildren())
+
+    auto x = node->GetChildren();
+    for (Node* child : node->GetChildren())
     {
-        PrintTree(&child, indent, child == last);
+        PrintTree(child, indent, child == node->GetChildren().back());
     }
 }
 
@@ -91,7 +65,7 @@ void Start()
     {
         std::cout << "> ";
         std::string input;
-        std::cin >> input;
+        std::getline(std::cin, input);
         if (input == "exit") break;
         const Ast tree = Ast::Parse(input);
         PrintTree(tree.root);

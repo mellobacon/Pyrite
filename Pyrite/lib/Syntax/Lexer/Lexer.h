@@ -9,12 +9,14 @@ class Lexer
     int _position{};
     int _start{};
     char _current{};
+    int _value{};
     TokenType _type = TokenType::EOF_TOKEN;
     std::string _current_string;
     void Advance();
     char Peek(int offset) const;
 
     void LexNumber();
+    void LexWhitespace();
 public:
     std::string text;
 

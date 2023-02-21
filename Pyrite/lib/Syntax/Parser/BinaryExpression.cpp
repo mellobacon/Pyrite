@@ -4,7 +4,7 @@ TokenType BinaryExpression::GetType()
 {
     return TokenType::BINARY_EXPRESSION;
 }
-std::list<Node&> BinaryExpression::GetChildren()
+std::list<Node*> BinaryExpression::GetChildren()
 {
-    return {*_left, _op, *_right};
+    return {_left, &_op, _right};
 }

@@ -29,7 +29,17 @@ void Lexer::LexNumber()
         _current_string += _current;
         Advance();
     }
+    _value = std::stoi(_current_string);
 }
+void Lexer::LexWhitespace()
+{
+    while (isspace(_current))
+    {
+        _current_string += " ";
+        Advance();
+    }
+}
+
 
 Token Lexer::Lex()
 {
@@ -86,7 +96,12 @@ Token Lexer::Lex()
         {
             _type = TokenType::NUMBER;
             LexNumber();
-            Advance();
+            break;
+        }
+        if (isspace(_current))
+        {
+            LexWhitespace();
+            _type = TokenType::WHITESPACE;
             break;
         }
         _type = TokenType::BAD_TOKEN;
@@ -94,7 +109,7 @@ Token Lexer::Lex()
         break;
     }
 
-    auto token = Token{_current_string, _type};
+    auto token = Token{_current_string, _type, _value};
     _current_string = "";
     return token;
 }

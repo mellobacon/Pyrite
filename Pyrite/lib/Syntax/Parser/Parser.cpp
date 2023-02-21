@@ -25,21 +25,22 @@ void Parser::Advance()
 Token Parser::GetNextToken()
 {
     Token current = _current;
-    _position++;
+    Advance();
     return current;
 }
 
 Expression* Parser::ParseExpression()
 {
     Expression* left = ParseLiteralExpression();
-    Token op = GetNextToken();
+    const Token op = GetNextToken();
     Expression* right = ParseLiteralExpression();
     return new BinaryExpression{left, op, right};
 }
 
 Expression* Parser::ParseLiteralExpression()
 {
-    return new LiteralExpression{GetNextToken()};
+    const Token number = GetNextToken();
+    return new LiteralExpression{number, number.tokentext};
 }
 
 

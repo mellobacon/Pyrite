@@ -1,25 +1,21 @@
 ﻿#pragma once
 #include <string>
-
 #include "TokenType.h"
 #include "../Parser/Node.h"
 
-struct Token final : Node
+class Token final : public Node
 {
+public:
     std::string tokentext;
     TokenType tokentype{};
-    Token(const std::string& text, const TokenType toktype)
+    int value;
+    Token(const std::string& text, const TokenType toktype, const int val)
     {
         tokentext = text;
         tokentype = toktype;
+        value = val;
     }
 
-    TokenType GetType() override
-    {
-        return TokenType::EOF_TOKEN;
-    }
-    std::list<Node&> GetChildren() override
-    {
-        return {};
-    }
+    TokenType GetType() override;
+    std::list<Node*> GetChildren() override;
 };

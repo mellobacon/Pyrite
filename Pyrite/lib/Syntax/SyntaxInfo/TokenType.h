@@ -46,8 +46,9 @@ enum class TokenType {
 
     LITERAL_EXPRESSION = 34,
     BINARY_EXPRESSION = 35,
-    
-    EOF_TOKEN = 36,
-    BAD_TOKEN = 37
+
+    WHITESPACE = 36,
+    EOF_TOKEN = 37,
+    BAD_TOKEN = 38
 };
 

@@ -19,7 +19,7 @@ class Parser
     Expression* ParseExpression();
     Expression* ParseLiteralExpression();
 public:
-    explicit Parser(std::string t) : _current(Token{"", TokenType::EOF_TOKEN})
+    explicit Parser(std::string t) : _current(Token{"", TokenType::EOF_TOKEN, 0})
     {
         Lexer lexer(std::move(t));
         while (true)
@@ -28,6 +28,10 @@ public:
             if (token.tokentype == TokenType::EOF_TOKEN)
             {
                 break;
+            }
+            if (token.tokentype == TokenType::WHITESPACE)
+            {
+                continue;
             }
             _tokens.emplace_back(token);
         }
