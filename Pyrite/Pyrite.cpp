@@ -41,6 +41,14 @@ void PrintTree(Node* node, std::string indent = "", bool islast = true)
         std::cout << "NUMBER";
     }
 
+    if (!node->TryGetToken().empty())
+    {
+        for (const std::pair<const TokenType, std::string>& x : node->TryGetToken())
+        {
+            std::cout << " " << x.second;
+        }
+    }
+
     std::cout << std::endl;
     if (islast)
     {

@@ -13,4 +13,5 @@ public:
     }
     TokenType GetType() override;
     std::list<Node*> GetChildren() override;
+    std::map<TokenType, std::string> TryGetToken() override;
 };

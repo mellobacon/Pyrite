@@ -9,3 +9,7 @@ std::list<Node*> LiteralExpression::GetChildren()
 {
     return {&_token};
 }
+std::map<TokenType, std::string> LiteralExpression::TryGetToken()
+{
+    return {};
+}

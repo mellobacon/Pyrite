@@ -15,7 +15,9 @@ public:
         tokentype = toktype;
         value = val;
     }
-
+    Token(): value(0) {}
+    
     TokenType GetType() override;
     std::list<Node*> GetChildren() override;
+    std::map<TokenType, std::string> TryGetToken() override;
 };
