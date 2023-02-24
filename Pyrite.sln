@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pyrite", "Pyrite\Pyrite.vcxproj", "{9A9C4260-C5BA-44ED-BCAA-15359FB199AF}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PyriteTest", "PyriteTest\PyriteTest.vcxproj", "{24D20B26-E342-49E3-A6A2-E26E9FA8FBEE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -18,5 +20,13 @@ Global
 		{9A9C4260-C5BA-44ED-BCAA-15359FB199AF}.Release|Win32.Build.0 = Release|Win32
 		{9A9C4260-C5BA-44ED-BCAA-15359FB199AF}.Release|x64.ActiveCfg = Release|x64
 		{9A9C4260-C5BA-44ED-BCAA-15359FB199AF}.Release|x64.Build.0 = Release|x64
+		{24D20B26-E342-49E3-A6A2-E26E9FA8FBEE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{24D20B26-E342-49E3-A6A2-E26E9FA8FBEE}.Debug|Win32.Build.0 = Debug|Win32
+		{24D20B26-E342-49E3-A6A2-E26E9FA8FBEE}.Debug|x64.ActiveCfg = Debug|x64
+		{24D20B26-E342-49E3-A6A2-E26E9FA8FBEE}.Debug|x64.Build.0 = Debug|x64
+		{24D20B26-E342-49E3-A6A2-E26E9FA8FBEE}.Release|Win32.ActiveCfg = Release|Win32
+		{24D20B26-E342-49E3-A6A2-E26E9FA8FBEE}.Release|Win32.Build.0 = Release|Win32
+		{24D20B26-E342-49E3-A6A2-E26E9FA8FBEE}.Release|x64.ActiveCfg = Release|x64
+		{24D20B26-E342-49E3-A6A2-E26E9FA8FBEE}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 EndGlobal

@@ -40,7 +40,6 @@ void Lexer::LexWhitespace()
     }
 }
 
-
 Token Lexer::Lex()
 {
     _start = _position;

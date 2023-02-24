@@ -112,7 +112,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -160,6 +160,7 @@
     <ClCompile Include="lib\Syntax\Parser\LiteralExpression.cpp" />
     <ClCompile Include="lib\Syntax\Parser\Node.cpp" />
     <ClCompile Include="lib\Syntax\Parser\Parser.cpp" />
+    <ClCompile Include="lib\Syntax\SyntaxInfo\SyntaxInfo.cpp" />
     <ClCompile Include="lib\Syntax\SyntaxInfo\Token.cpp" />
     <ClCompile Include="Pyrite.cpp" />
   </ItemGroup>
@@ -171,6 +172,7 @@
     <ClInclude Include="lib\Syntax\Parser\LiteralExpression.h" />
     <ClInclude Include="lib\Syntax\Parser\Node.h" />
     <ClInclude Include="lib\Syntax\Parser\Parser.h" />
+    <ClInclude Include="lib\Syntax\SyntaxInfo\SyntaxInfo.h" />
     <ClInclude Include="lib\Syntax\SyntaxInfo\Token.h" />
     <ClInclude Include="lib\Syntax\SyntaxInfo\TokenType.h" />
   </ItemGroup>
