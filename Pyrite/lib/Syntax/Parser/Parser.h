@@ -18,6 +18,7 @@ class Parser
 
     Expression* ParseExpression();
     Expression* ParseLiteralExpression();
+    Expression* ParseBinaryExpression(int precedence = 0);
 public:
     explicit Parser(std::string t) : _current(Token{"", TokenType::EOF_TOKEN, 0})
     {

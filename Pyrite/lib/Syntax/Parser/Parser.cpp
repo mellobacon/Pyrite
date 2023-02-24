@@ -2,6 +2,7 @@
 
 #include "BinaryExpression.h"
 #include "LiteralExpression.h"
+#include "../SyntaxInfo/SyntaxInfo.h"
 
 Ast Parser::Parse()
 {
@@ -31,10 +32,24 @@ Token Parser::GetNextToken()
 
 Expression* Parser::ParseExpression()
 {
+    return ParseBinaryExpression();
+}
+
+Expression* Parser::ParseBinaryExpression(const int precedence)
+{
     Expression* left = ParseLiteralExpression();
-    const Token op = GetNextToken();
-    Expression* right = ParseLiteralExpression();
-    return new BinaryExpression{left, op, right};
+    while (true)
+    {
+        const int currentprecedence = SyntaxInfo::GetPrecedence(_current);
+        if (currentprecedence == precedence || currentprecedence <= precedence)
+        {
+            break;
+        }
+        const Token op = GetNextToken();
+        Expression* right = ParseBinaryExpression();
+        left = new BinaryExpression{left, op, right};
+    }
+    return left;
 }
 
 Expression* Parser::ParseLiteralExpression()
